@@ -10,11 +10,11 @@ GsumArray = zeros(1,numberOfImageInDataSet);
 BsumArray = zeros(1,numberOfImageInDataSet);
 
 %here are ccv for the original image
-rgbIMG = imread('C:\Users\Fatima\Desktop\imageprocessing code\image_DBase\image_DBase\8.jpg');
+rgbIMG = imread('C:\Users\Fatima\Desktop\imageprocessing code\image_DBase\image_DBase\161.jpg');
 
 %here you can edit the number of color in image in descritizing stage and the thresold for it 
-numberOfColorImg=32;
-threshold=50;
+numberOfColorImg=16;
+threshold=10;
 [CVR, CVG, CVB]=  CCVg(rgbIMG,numberOfColorImg,threshold);
 
  i=1;
@@ -35,8 +35,8 @@ while hasdata(ds)
 end
 maxIndex = zeros(1,5);
 for j=1:5
-       [M,I] = min(BsumArray);
-       BsumArray(1,I)=1000000;
+       [M,I] = min(RsumArray);
+       RsumArray(1,I)=1000000;
        maxIndex(1,j) = I;
 end
   img1=readimage(ds,maxIndex(1,1));
@@ -51,3 +51,4 @@ subplot(1,6,3), imshow(img2)
 subplot(1,6,4), imshow(img3)
 subplot(1,6,5), imshow(img4)
 subplot(1,6,6), imshow(img5)
+
